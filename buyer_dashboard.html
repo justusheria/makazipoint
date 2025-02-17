@@ -1,0 +1,58 @@
+ 
+
+<!-- Seller Dashboard -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header" id="userHeader">Seller: Loading...</div>
+    <button class="logout" onclick="logout()">Logout</button>
+    
+    <div class="tabs">
+        <div class="tab" onclick="showTab('myProperties')">My Properties</div>
+        <div class="tab" onclick="showTab('notifications')">Notifications</div>
+        <div class="tab" onclick="showTab('account')">My Account</div>
+    </div>
+
+    <div id="myProperties" class="content active">
+        <h2>My Properties</h2>
+        <button onclick="showPostForm()">Post Item</button>
+        <div id="postForm" style="display:none;">
+            <form>
+                <input type="text" placeholder="Item Category">
+                <input type="text" placeholder="Location">
+                <input type="number" placeholder="Cost">
+                <input type="text" placeholder="Phone Number 1">
+                <input type="text" placeholder="Phone Number 2 (Optional)">
+                <textarea placeholder="Description"></textarea>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="notifications" class="content">
+        <h2>Notifications</h2>
+        <p>No new notifications</p>
+    </div>
+    
+    <div id="account" class="content">
+        <h2>My Account</h2>
+        <form>
+            <input type="text" placeholder="Full Name">
+            <input type="text" placeholder="Username">
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="Phone">
+            <input type="password" placeholder="Current Password">
+            <input type="password" placeholder="New Password">
+            <button type="submit">Update</button>
+        </form>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>

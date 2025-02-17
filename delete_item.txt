@@ -1,0 +1,42 @@
+<?php
+session_start();
+include 'db_connect.php';
+
+// Ensure the user is logged in and is a seller
+if (!isset($_SESSION['username']) || $_SESSION['user_type'] !== 'seller') {
+    header("Location: index.html");
+    exit();
+}
+
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    die("Invalid request.");
+}
+
+$item_id = $_GET['id'];
+$seller_username = $_SESSION['username'];
+
+// Check if the item belongs to the logged-in seller
+$check_query = "SELECT * FROM properties WHERE id = ? AND seller_username = ?";
+$stmt = $conn->prepare($check_query);
+$stmt->bind_param("is", $item_id, $seller_username);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 0) {
+    die("Unauthorized action or item does not exist.");
+}
+
+// Proceed with deletion
+$delete_query = "DELETE FROM properties WHERE id = ?";
+$stmt = $conn->prepare($delete_query);
+$stmt->bind_param("i", $item_id);
+
+if ($stmt->execute()) {
+    echo "<script>alert('Item deleted successfully!'); window.location.href='seller_dashboard.php';</script>";
+} else {
+    echo "<script>alert('Error deleting item. Try again.'); window.location.href='seller_dashboard.php';</script>";
+}
+
+$stmt->close();
+$conn->close();
+?>

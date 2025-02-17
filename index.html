@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUY HOME</title>
+    
+    <link rel="stylesheet" href="styles.css">
+
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5e1c5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #8B5E3C;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #d2691e;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background-color: #a0522d;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(210, 210, 210);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+        }
+        .close {
+            float: right;
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to BUY HOME</h1>
+        <p>BUY HOME is your trusted platform for buying and selling properties with ease.</p>
+        <button class="button" onclick="openPopup('loginPopup')">Login</button>
+        <button class="button" onclick="openPopup('signupPopup')">Sign Up</button>
+    </div>
+
+    <div id="loginPopup" class="popup">
+        <span class="close" onclick="closePopup('loginPopup')">&times;</span>
+        <h2>Login</h2>
+
+        <form action="login.php" method="POST">
+            <input type="text" name="loginUser" placeholder="Username or Email" required><br>
+            <input type="password" name="loginPass" placeholder="Password" required><br>
+            <button class="button" type="submit">Login</button>
+        </form>
+        
+
+    </div>
+
+
+
+    <div id="signupPopup" class="popup">
+        <span class="close" onclick="closePopup('signupPopup')">&times;</span>
+        <h2>Sign Up</h2>
+        <button class="button" onclick="openPopup('buyerSignup')">Sign Up as Buyer</button>
+        <button class="button" onclick="openPopup('sellerSignup')">Sign Up as Seller</button>
+    </div>
+
+
+    <div id="buyerSignup" class="popup"> 
+        <span class="close" onclick="closePopup('buyerSignup')">&times;</span>
+        <h2>Buyer Sign Up</h2>
+
+
+
+x
+        
+        <form action="auth.php" method="POST">
+            <input type="text" name="full_name" placeholder="Full Name" required><br>
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="text" name="phone" placeholder="Phone" required><br>
+            <input type="email" name="email" placeholder="Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="hidden" name="user_type" value="buyer"> <!-- or seller -->
+            <button type="submit" name="register">Sign Up</button>
+        </form>
+
+
+
+
+
+    </div>
+    
+    <div id="sellerSignup" class="popup">
+        <span class="close" onclick="closePopup('sellerSignup')">&times;</span>
+        <h2>Seller Sign Up</h2>
+
+
+        <form action="auth.php" method="POST">
+            <input type="text" name="full_name" placeholder="Full Name" required><br>
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="text" name="phone" placeholder="Phone" required><br>
+            <input type="email" name="email" placeholder="Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="hidden" name="user_type" value="seller"> <!-- or seller -->
+            <button type="submit" name="register">Sign Up</button>
+        </form>
+
+
+        
+    </div>
+    
+
+
+    <script>
+        function openPopup(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+        function closePopup(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+        function redirectUser() {
+            window.location.href = "buyer_dashboard.html";
+        }
+        function redirectBuyer() {
+            window.location.href = "buyer_dashboard.html";
+        }
+        function redirectSeller() {
+            window.location.href = "seller_dashboard.html";
+        }
+    </script>
+
+</body>
+</html>

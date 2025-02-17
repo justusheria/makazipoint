@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5e1c5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .property-card {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            justify-content: space-between;
+        }
+        .property-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .property-details {
+            flex-grow: 1;
+            text-align: left;
+            margin-left: 15px;
+        }
+        .property-actions {
+            text-align: right;
+        }
+        .button {
+            padding: 8px 15px;
+            background-color: #d2691e;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background-color: #a0522d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="property-card">
+            <img src="placeholder.jpg" alt="Property Image">
+            <div class="property-details">
+                <p><strong>Seller:</strong> John Doe</p>
+                <p><strong>Category:</strong> Apartment</p>
+                <p><strong>Location:</strong> Dar es Salaam</p>
+                <p><strong>Phone:</strong> +255 123 456 789</p>
+            </div>
+            <div class="property-actions">
+                <p><strong>Price:</strong> $10,000</p>
+                <p><strong>Date:</strong> 10-Feb-2025</p>
+                <button class="button">I Need This</button>
+                <button class="button">More >></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
